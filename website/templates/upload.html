@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+{% load static %}
+{% csrf_token %}
+
+  <p class="w3-center w3-large">Please upload the photo of the car.</p>
+
+<script> 
+	  
+    function previewFile(input){
+        var file = $("input[type=file]").get(0).files[0];
+ 
+        if(file){
+            var reader = new FileReader();
+ 
+            reader.onload = function(){
+                $("#previewImg").attr("src", reader.result);
+            }
+ 
+            reader.readAsDataURL(file);
+        }
+    }
+
+   const csrftoken = Cookies.get('csrftoken');
+</script>
+
+  <form action="{% url 'resultpage' %}#demo" method="post" enctype="multipart/form-data" class="w3-center"> {% csrf_token %}
+	  
+	  	
+	  	<img id="previewImg" src="{% static 'upload-pic.png' %}" alt="preview image" style="height:200px">
+
+	  	<br><br><br>
+
+	  	<input type="file" name="image" accept="image/*" onchange="previewFile(this);">
+
+	  	<button type="submit">Submit</button>
+
+  </form> 
+
+ {% endblock %}

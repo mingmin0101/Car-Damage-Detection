@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<style>
+table {
+  border-collapse: collapse;
+  width: 30%;
+
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#f5f5f5;}
+</style>
+
+{% endblock %} 
+
+
+
+{% block content %} 
+{% load static %}
+
+<!-- <p style="text-align: center;"> result </p> -->
+
+<form action="{% url 'homepage' %}#demo" method="post" enctype="multipart/form-data" class="w3-center"> {% csrf_token %}
+    <br><br>
+    <img src="{{img_obj.image.url}}" alt="preview image" style="height:200px">
+    <br><br><br>
+
+
+<!-- 如果是車子，且有損壞 -->
+    <table align="center">
+        <tr>
+          <td>Car Validation Check</td>
+
+<!-- 1. car or not -->
+{% if model1_response == 0 %}
+          <td><span><i class="fa fa-times-circle-o"></i></span></td>
+        </tr>
+{% endif %}
+
+
+
+{% if model1_response == 1 %}
+          <td><span><i class="fa fa-check-circle-o"></i></span></td>
+        </tr>
+        <tr>
+          <td>Damage Validation Check</td>
+
+  {% if model2_response == 0 %}
+          <td><span><i class="fa fa-times-circle-o"></i></span></td>
+  {% endif %}
+
+  {% if model2_response == 1 %}
+          <td><span><i class="fa fa-check-circle-o"></i></span></td>
+        </tr>
+        <tr>
+          <td>Location</td>
+
+    {% if model3_response == 0 %}
+          <td><span>Need further assessment</span></td>
+
+    {% else %}
+
+      {% if model3_response == "Front" %}
+          <td><span>Front</span></td>
+      {% elif model3_response == "Rear" %}
+          <td><span>Rear</span></td>
+      {% elif model3_response == "Side" %}
+          <td><span>Side</span></td>
+      {% endif %}
+
+    {% endif %}
+
+
+        </tr>
+        <tr>
+          <td>Severity</td>
+
+    {% if model4_response == 0 %}
+          <td><span>Need futher assessment</span></td>
+
+    {% else %}
+
+      {% if model4_response == "Minor" %}
+          <td><span>Minor</span></td>
+      {% elif model4_response == "Moderate" %}
+          <td><span>Moderate</span></td>
+      {% elif model4_response == "Severe" %}
+          <td><span>Severe</span></td>
+      {% endif %}
+
+    {% endif %}
+          <td></td>
+        </tr>
+
+  {% endif %}        
+
+{% endif %}
+
+        
+    </table>
+
+
+<!-- 如果是車子，沒孫壞 -->
+
+
+
+<!-- 如果不是車子 -->
+
+
+
+
+    <br><br>
+    <button type="submit">Upload Again</button>
+
+<!--     <button onclick="showClaimInfo()">Claim Estimation</button>
+    
+    <p id="claiminfo"></p> -->
+
+</form> 
+
+<!-- <script type="text/javascript">
+function showClaimInfo(){
+  
+  document.getElementById("claiminfo").innerHTML = "Future work!";
+
+}
+
+</script> -->
+
+ {% endblock %}

@@ -1,0 +1,6 @@
+Run the process with the command:
+
+-- python model1.py -p image_path
+-- python model2.py -p image_path
+-- python model3.py -p image_path
+-- python model4.py -p image_path

@@ -1,17 +1,17 @@
 # Car-Damage-Detection
 2020 EE-5183-Financial-Technology Final Project
 
-### Abstract
+## Abstract
 Our research focuses on the area of insurance and we aim to make the claiming process more simpler and shorten the time to get the claims after filing an car insurance claim. We build a car damage detection model, which is composed of 4 submodels, to detect whether the photo is a car, whether the car is damaged, which part is damaged, and the severity of damage. Our proposed method combines deep learning, instance segmentation, and transfer learning techniques for features extraction and damage identification, also with a promising attempt in classifying car damages into a few different classes. Along the way, the main focus was on the influence of certain hyper-parameters and on seeking theoretically founded ways to adapt them, all with the objective of progressing to satisfactory results as fast as possible. This research open doors for future collaborations on image recognition projects in general and for the car insurance field in particular.
 
-### Proposed method
+## Proposed method
 Our proposed method combines deep learning, instance segmentation, and transfer learning techniques for features extraction and damage identification, which is composed of four
 models. Our objective is to automatically detect damages in cars, locate them, classify their severity levels, and visualize them by contouring their exact locations.
 
-### Demo video
+## Demo video
 [![Watch the video](https://img.youtube.com/vi/7h8vnmnAstE/maxresdefault.jpg)](https://youtu.be/7h8vnmnAstE)
 
-### Reference
+## Reference
 [1] “What is auto insurance? — iii,” https://www.iii.org/article/what-auto-insurance, (Accessed on 01/13/2021).
 
 [2] “What to expect when filing a car insurance claim — allstate,” https://www.allstate.com/tr/car-insurance/howto-file-auto-insurance-claim.aspx, (Accessed on 01/13/2021).
